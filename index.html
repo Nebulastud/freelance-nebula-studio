@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FREELANCE BY NEBULA</title>
+  <style>
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:url('bg.jpg') no-repeat center center fixed;
+      background-size:cover;
+      color:white;
+      overflow-x:hidden;
+    }
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:8px 14px;
+      background:rgba(42,157,244,0.85);
+      color:white;
+      position:sticky; top:0; z-index:1200;
+    }
+    .logo{font-weight:700;font-size:16px}
+    .left-area{display:flex;align-items:center;gap:12px;}
+    .menu-toggle{
+      display:flex;flex-direction:column;gap:4px;cursor:pointer;
+      background:none;border:none;padding:6px;
+    }
+    .menu-toggle span{
+      display:block;width:20px;height:2.5px;margin:3px 0;
+      background:#fff;border-radius:2px;
+    }
+
+    /* === MENU SLIDE DARI KIRI === */
+nav.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background: url("menu-bg.png") no-repeat center center;
+  background-size: cover;              /* biar full */
+  box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+    nav.main-nav.active{transform:translateX(0);}
+    nav.main-nav a, .menu-item-btn{
+      color:#222;text-decoration:none;font-size:16px;
+      padding:10px 14px;border-radius:4px;
+      background:transparent;border:0;text-align:left;
+      cursor:pointer;
+    }
+    nav.main-nav a:hover, .menu-item-btn:hover{
+      background:rgba(0,0,0,0.05);
+    }
+
+    .dropdown { position:relative; }
+    .submenu {
+      display:none;flex-direction:column;
+      margin-left:10px;margin-top:4px;
+    }
+    .submenu.show{display:flex;}
+    .submenu a{
+      padding:8px 14px;font-size:15px;color:#333;
+    }
+    .submenu a:hover{background:#eef4ff}
+
+    main{
+      padding:20px;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      align-items:center;
+      text-align:center;
+    }
+    .text-area{
+      margin-top:60px;
+      font-size:18px;
+      line-height:1.6;
+      max-width:800px;
+      text-shadow:1px 1px 3px rgba(0,0,0,0.7);
+    }
+    .typing{
+      display:inline-block;
+      border-right:2px solid white;
+      white-space:pre-line;
+      overflow:hidden;
+    }
+    /* tombol whatsapp */
+    .wa-buttons{
+      margin-top:auto;
+      margin-bottom:40px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:center;
+    }
+    .whatsapp-btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:12px 20px;
+      background:#25d366;
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+      border-radius:50px;
+      box-shadow:0 4px 8px rgba(0,0,0,0.3);
+      transition:background 0.2s ease;
+      font-size:16px;
+    }
+    .whatsapp-btn:hover { background:#20bd5a; }
+    .whatsapp-btn img { width:22px; height:22px; }
+
+    /* animasi uang jatuh */
+    .money {
+      position:fixed;
+      top:-100px;
+      width:40px;
+      height:40px;
+      pointer-events:none;
+      animation: fall linear forwards;
+      z-index:1;
+    }
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(360deg); opacity:0.8; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left-area">
+      <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="logo">FREELANCE BY NEBULA</div>
+  </header>
+
+  <!-- MENU NAVIGASI -->
+  <nav class="main-nav" id="navMenu">
+    <a href="index.html">𝙷𝙾𝙼𝙴</a>
+
+    <div class="dropdown">
+      <button class="menu-item-btn" data-target="submenuA">𝙵𝙱 𝙵𝚁𝙴𝚂𝙷 𝙰𝟸𝙵 ▾</button>
+      <div class="submenu" id="submenuA">
+        <a href="rules-fb1.html">𝚁𝚄𝙻𝙴𝚂 𝙵𝙱</a>
+        <a href="tutor1.html">𝚃𝚄𝚃𝙾𝚁𝙸𝙰𝙻</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="menu-item-btn" data-target="submenuB">𝙵𝙱 𝙵𝚁𝙴𝚂𝙷 𝙲𝙾𝙾𝙺𝙸𝙴𝚂 ▾</button>
+      <div class="submenu" id="submenuB">
+        <a href="rules-fb2.html">𝚁𝚄𝙻𝙴𝚂 𝙵𝙱</a>
+        <a href="tutor2.html">𝚃𝚄𝚃𝙾𝚁𝙸𝙰𝙻</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="text-area">
+      <h2 class="typing" id="typingText"></h2>
+    </div>
+
+    <div class="wa-buttons">
+      <a href="https://wa.me/6283137990972" target="_blank" class="whatsapp-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> Chat wa admin
+      </a>
+      <a href="https://whatsapp.com/channel/0029Vb6U7Kf3bbV4i8Xgrh3y" target="_blank" class="whatsapp-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> Bukti Payment
+      </a>
+    </div>
+  </main>
+
+  <!-- Suara ketikan -->
+  <audio id="typeSound" src="kyboard.mp3" preload="auto"></audio>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    // toggle slide menu
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active"); 
+    });
+
+    // submenu toggle
+    const dropdownBtns = document.querySelectorAll('.menu-item-btn');
+    dropdownBtns.forEach(btn => {
+      const targetId = btn.getAttribute('data-target');
+      const panel = document.getElementById(targetId);
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        panel.classList.toggle('show');
+      });
+    });
+
+    // animasi mengetik dengan suara
+    const text = `𝙷𝙰𝙻𝙾 𝚂𝙾𝙱𝙰𝚃 𝙵𝚁𝙴𝙴𝙻𝙰𝙽𝙲𝙴\n\n𝙱𝙴𝙺𝙴𝚁𝙹𝙰𝙻𝙰𝙷 𝙳𝙴𝙽𝙶𝙰𝙽 𝙱𝙰𝙸𝙺 𝙳𝙰𝙽 𝙹𝚄𝙹𝚄𝚁\n\n𝙺𝙰𝚁𝙴𝙽𝙰 𝙸𝚃𝚄 𝚃𝙸𝙳𝙰𝙺 𝙼𝙴𝚁𝚄𝙶𝙸𝙺𝙰𝙽𝙼𝚄 𝚂𝙰𝙼𝙰 𝚂𝙴𝙺𝙰𝙻𝙸.\n𝙺𝙰𝚁𝙴𝙽𝙰 𝙺𝚄𝙽𝙲𝙸 𝙽𝚈𝙰 𝚂𝚄𝚂𝙺𝚂𝙴𝚂 𝙸𝚃𝚄 𝙰𝙳𝙰𝙻𝙰𝙷 𝙹𝚄𝚄𝙹𝚄𝚁 & 𝙰𝙼𝙰𝙽𝙰𝙷.`;
+    let i = 0;
+    const speed = 50; 
+    const typeSound = document.getElementById("typeSound");
+
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typingText").innerHTML += text.charAt(i);
+        if (text.charAt(i) !== " " && text.charAt(i) !== "\n") {
+          typeSound.currentTime = 0;
+          typeSound.play();
+        }
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    window.onload = typeWriter;
+
+    // animasi uang jatuh
+    function createMoney() {
+      const money = document.createElement('img');
+      money.src = 'money.png'; // file uang lokal
+      money.className = 'money';
+      money.style.left = Math.random() * window.innerWidth + 'px';
+      money.style.animationDuration = (3 + Math.random() * 4) + 's';
+      money.style.opacity = Math.random();
+      document.body.appendChild(money);
+      setTimeout(() => money.remove(), 7000);
+    }
+    setInterval(createMoney, 500);
+  </script>
+</body>
+</html>
